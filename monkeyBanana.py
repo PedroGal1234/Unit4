@@ -9,6 +9,22 @@ ROWS = 27
 COLS = 50
 CELL_SIZE = 20
 
+def moveRight(event):
+    if monkey.x > (COLS-1)*CELL_SIZE:
+        monkey.x += CELL_SIZE
+
+def moveLeft(event):
+    if monkey.x > 0:
+        monkey.x -= CELL_SIZE
+
+def moveRight(event):
+    if monkey.x > (ROWS-1)*CELL_SIZE:
+        monkey.x += CELL_SIZE
+
+def moveRight(event):
+    if monkey.x > (COLS-1)*CELL_SIZE:
+        monkey.x += CELL_SIZE
+
 if __name__ == '__main__':
     
     green = Color(0x006600,1)
@@ -24,4 +40,7 @@ if __name__ == '__main__':
     Sprite(bananaBox,((COLS*CELL_SIZE)/2,(ROWS*CELL_SIZE)/2))
     
     App().listenKeyEvent('keydown','right arrow',moveRight)
+    App().listenKeyEvent('keydown','left arrow',moveLeft)
+    App().listenKeyEvent('keydown','down arrow',moveDown)
+    App().listenKeyEvent('keydown','up arrow',moveUp)
     App().run()
