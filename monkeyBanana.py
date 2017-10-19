@@ -5,7 +5,7 @@
 from ggame import *
 from random import randint
 #constants
-ROWS = 27
+ROWS = 26
 COLS = 50
 CELL_SIZE = 20
 
@@ -25,14 +25,14 @@ def moveLeft(event):
 
 def moveDown(event):
     if monkey.y < (ROWS-1)*CELL_SIZE:
-        monkey.x += CELL_SIZE
+        monkey.y += CELL_SIZE
         if monkey.x == banana.x and monkey.y == banana.y:
             moveBanana()
             updateScore()
 
 def moveUp(event):
     if monkey.y > 0:
-        monkey.x -= CELL_SIZE
+        monkey.y -= CELL_SIZE
         if monkey.x == banana.x and monkey.y == banana.y:
             moveBanana()
             updateScore()
