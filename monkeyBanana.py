@@ -3,7 +3,7 @@
 #monkeyBanana.py - best game ever
 
 from ggame import *
-
+from random import randint
 #constants
 ROWS = 27
 COLS = 50
@@ -17,13 +17,17 @@ def moveLeft(event):
     if monkey.x > 0:
         monkey.x -= CELL_SIZE
 
-def moveRight(event):
+def moveDown(event):
     if monkey.x > (ROWS-1)*CELL_SIZE:
         monkey.x += CELL_SIZE
 
-def moveRight(event):
+def moveUp(event):
     if monkey.x > (COLS-1)*CELL_SIZE:
-        monkey.x += CELL_SIZE
+        monkey.x -= CELL_SIZE
+
+def moveBanana():
+    banana.x = randint(1,COLS-1)*CELL_SIZE
+    banana.y = randint(1,ROWS-1)*CELL_SIZE
 
 if __name__ == '__main__':
     
@@ -37,7 +41,7 @@ if __name__ == '__main__':
     
     Sprite(jungleBox)
     monkey = Sprite(monkeyBox)
-    Sprite(bananaBox,((COLS*CELL_SIZE)/2,(ROWS*CELL_SIZE)/2))
+    banana = Sprite(bananaBox,((COLS*CELL_SIZE)/2,(ROWS*CELL_SIZE)/2))
     
     App().listenKeyEvent('keydown','right arrow',moveRight)
     App().listenKeyEvent('keydown','left arrow',moveLeft)
