@@ -2,7 +2,7 @@
 #10/20/17
 #stringUnion.py - unites two strings
 
-total = ''
+total = " "
 def stringUnion(word1,word2):
     for ch in word1:
         if ch not in total:
