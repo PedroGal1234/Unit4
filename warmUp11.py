@@ -7,7 +7,7 @@ def isPrime(n):
     while x < n:
         if n%x == 0:
             return False
-        n += 1
+        x += 1
     return True
 
-print(isPrime(5))
+print(isPrime(10))
