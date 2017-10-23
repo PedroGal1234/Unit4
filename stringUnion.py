@@ -2,14 +2,17 @@
 #10/20/17
 #stringUnion.py - unites two strings
 
-total = " "
-def stringUnion(word1,word2):
+def stringUnion(word1, word2):
+    total = " "
     for ch in word1:
-        if ch not in total:
-            total = str(total)+str(ch)
+        if not ch in total:
+            total += ch
+            
     for ch in word2:
-        if ch not in total:
-            total = str(total)+str(ch)
+        if not ch in total:
+            total += ch
+    
+    return total
 
-stringUnion('big','bro')
+print(stringUnion("mississippi", "pennsylvania"))
     
