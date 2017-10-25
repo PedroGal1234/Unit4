@@ -20,7 +20,7 @@ def bounceBall():
 def step():
     data['frames'] += 1
     if data['frames'] == 1:
-        if ball.x+50 == 523 and ball.y+50 == 1012:
+        if ball.x+50 == 1024 or ball.y+50 == 513:
             bounceBall()
         else:
             moveBall()
