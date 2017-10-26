@@ -12,11 +12,11 @@ def moveBall():
 
 def moveX():
     data['xd'] = -1*(data['xd'])
-    print('Pedro')
+    print('Bam!!')
     
 def movey():    
     data['yd'] = -1*(data['yd'])
-    print('Pedro')
+    print('Bam!!')
 
 
 def step():
