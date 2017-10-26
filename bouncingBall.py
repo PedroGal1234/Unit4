@@ -12,14 +12,16 @@ def moveBall():
 
 def moveX():
     data['xd'] = -1*(data['xd'])
+    print('Pedro')
     
 def movey():    
     data['yd'] = -1*(data['yd'])
+    print('Pedro')
 
 
 def step():
     if ball.x+50 >= 1015 or ball.x-50 <= 0: 
-        movex()
+        moveX()
     if ball.y+50 >= 523 or ball.y-50 <= 0:
         movey()
     moveBall()
