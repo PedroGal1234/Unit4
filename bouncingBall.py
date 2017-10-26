@@ -9,30 +9,24 @@ diameter = 50
 def moveBall():
     ball.x = ball.x +1
     ball.y = ball.y + 1
-    data['frames'] = 0
 
 def bounceBall():
     ball.x = ball.x - 1
     ball.y = ball.y - 1
-    data['frames'] = 0
 
 
 def step():
-    data['frames'] += 1
-    if data['frames'] == 1:
-        if ball.x+50 == 1024 or ball.y+50 == 513:
-            bounceBall()
-        else:
-            moveBall()
+    if ball.x+50 > 1024 or ball.y+50 > 523:
+        bounceBall()
+    else:
+        moveBall()
     
 
 
-data = {}
-data['frames'] = 0
     
 red = Color(0xFF00, 1)
 
-circle = CircleAsset(diameter,LineStyle(10,red),red)
+circle = CircleAsset(diameter,LineStyle(0,red),red)
 
 ball = Sprite(circle,(50,50))
 
