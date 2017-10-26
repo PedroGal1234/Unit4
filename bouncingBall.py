@@ -7,7 +7,7 @@ from ggame import *
 radius = 50
 
 def moveBall():
-    ball.x = ball.x -data['xd']
+    ball.x = ball.x +data['xd']
     ball.y = ball.y +data['yd']
 
 def moveX():
@@ -29,11 +29,11 @@ if __name__ == "__main__":
     
     circle = CircleAsset(radius,LineStyle(0,red),red)
     
-    ball = Sprite(circle,(100,100))
+    ball = Sprite(circle,(51,51))
     
     data = {}
-    data["xd"] = 5.23
-    data['yd'] = 5.23
+    data["xd"] = 10
+    data['yd'] = 10
     
     App().run(step)
 
