@@ -2,9 +2,6 @@
 #10/27/17
 #pong - the pong game
 
-#Pedro Gallino
-#10/25/17
-#bouncingBall.py - displays a bouncing ball
 
 from ggame import *
 
