@@ -27,8 +27,10 @@ def moveDown2(event):
     paddle2.y = paddle2.y+10
 
 def step():
-    if ball.x+50 >= 1015 or ball.x-50 <= 0: 
+    if ball.x+50 <= paddle1.x and ball.y == paddle1: 
         moveX()
+    if ball.x+50 <= paddle2.x and ball.y == paddle2: 
+        maveX()
     if ball.y+50 >= 523 or ball.y-50 <= 0:
         moveY()
     moveBall()
@@ -42,7 +44,7 @@ if __name__ == "__main__":
     rectangle2 = RectangleAsset(50,200,LineStyle(1, blue), blue)
     
     
-    ball = Sprite(circle,(51,51))
+    ball = Sprite(circle,(300,300))
     paddle1 = Sprite(rectangle1,(0,200))
     paddle2 = Sprite(rectangle2,(965,200))
     
