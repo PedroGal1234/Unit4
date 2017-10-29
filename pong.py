@@ -27,7 +27,7 @@ def moveDown2(event):
     paddle2.y = paddle2.y+10
 
 def step():
-    if ball.x+50 <= paddle1.x and ball.y == paddle1: 
+    if ball.x+50 == paddle1.x and ball.y == paddle1: 
         moveX()
     if ball.x+50 <= paddle2.x and ball.y == paddle2: 
         maveX()
