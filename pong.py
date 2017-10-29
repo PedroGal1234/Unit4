@@ -8,6 +8,10 @@ from ggame import *
 radius = 25
 
 def moveBall():
+    if ball.x+25 >= 1015:
+        updateScore1()
+    if ball.x<= 0:
+        updateScore1()
     ball.x = ball.x +data['xd']
     ball.y = ball.y +data['yd']
 
@@ -33,25 +37,52 @@ def step():
         moveX()
     if ball.x+25 >= 960 and ball.y >= paddle2.y and ball.y <= (paddle2.y+200):
         moveX()
-    if ball.y+50 >= 523 or ball.y-50 <= 0:
+    if ball.y+25 >= 523 or ball.y-25 <= 0:
         moveY()
     moveBall()
 
+def updateScore1():
+    reset()
+    data["score1"] += 1
+    data["scoreText1"].destroy()
+    scoreBox1 = TextAsset("Player1: "+str(data["score"]))
+    data["scoreText1"] = Sprite(scoreBox1,(450,0))
+    reset()
+
+def updateScore2():
+    reset()
+    data["score2"] += 1
+    data["scoreText2"].destroy()
+    scoreBox2 = TextAsset("Player2: "+str(data["score"]))
+    data["scoreText2"] = Sprite(scoreBox2,(450,25))
+
+def reset():
+    print('hello')
+    ball = Sprite(circle,(300,300))
+    paddle1 = Sprite(rectangle1,(0,200))
+    paddle2 = Sprite(rectangle2,(960,200))
+    App().run(step)
+
 if __name__ == "__main__":    
+    
     red = Color(0xFF0000, 1)
     blue = Color(0x0000ff,1)
     green = Color(0x00ff00,1)
     circle = CircleAsset(radius,LineStyle(0,red),red)
     rectangle1 = RectangleAsset(50,200,LineStyle(1, blue), blue)
     rectangle2 = RectangleAsset(50,200,LineStyle(1, blue), blue)
+    scoreBox1 = TextAsset("Player1: 0")
+    scoreBox2 = TextAsset("Player2: 0")
     
-    
+    data = {}
+    data["scoreText1"] = Sprite(scoreBox1,(450,0))
+    data["scoreText2"] = Sprite(scoreBox2,(450,25))
     ball = Sprite(circle,(300,300))
     paddle1 = Sprite(rectangle1,(0,200))
     paddle2 = Sprite(rectangle2,(960,200))
     
-    
-    data = {}
+    data["score1"] = 0
+    data["score2"] = 0
     data["xd"] = 10
     data['yd'] = 10
     App().listenKeyEvent("keydown","w", moveUp1)
