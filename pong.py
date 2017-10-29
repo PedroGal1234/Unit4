@@ -42,7 +42,6 @@ def step():
     moveBall()
 
 def updateScore1():
-    reset()
     data["score1"] += 1
     data["scoreText1"].destroy()
     scoreBox1 = TextAsset("Player1: "+str(data["score"]))
@@ -50,19 +49,20 @@ def updateScore1():
     reset()
 
 def updateScore2():
-    reset()
     data["score2"] += 1
     data["scoreText2"].destroy()
     scoreBox2 = TextAsset("Player2: "+str(data["score"]))
     data["scoreText2"] = Sprite(scoreBox2,(450,25))
 
-def reset():
+def reset(event):
     ball.destroy()
     paddle1.destroy()
     paddle2.destroy()
+    
     circle = CircleAsset(radius,LineStyle(0,red),red)
     rectangle1 = RectangleAsset(50,200,LineStyle(1, blue), blue)
     rectangle2 = RectangleAsset(50,200,LineStyle(1, blue), blue)
+    
     ball = Sprite(circle,(300,300))
     paddle1 = Sprite(rectangle1,(0,200))
     paddle2 = Sprite(rectangle2,(960,200))
@@ -93,7 +93,8 @@ if __name__ == "__main__":
     App().listenKeyEvent("keydown","w", moveUp1)
     App().listenKeyEvent("keydown","s", moveDown1)
     App().listenKeyEvent("keydown","up arrow", moveUp2)
-    App().listenKeyEvent("keydown","down arrow", moveDown2) 
+    App().listenKeyEvent("keydown","down arrow", moveDown2)
+    App().listenKeyEvent("keydown","space", reset)
     App().run(step)
 
 
