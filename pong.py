@@ -5,7 +5,7 @@
 
 from ggame import *
 
-radius = 50
+radius = 25
 
 def moveBall():
     ball.x = ball.x +data['xd']
@@ -18,19 +18,21 @@ def moveY():
     data['yd'] = -1*(data['yd'])
 
 def moveUp1(event):
-    paddle1.y = paddle1.y-10
+    if paddle1.y > 0:
+        paddle1.y = paddle1.y-20
 def moveDown1(event):
-    paddle1.y = paddle1.y+10
+        paddle1.y = paddle1.y+20
 def moveUp2(event):
-    paddle2.y = paddle2.y-10
+    if paddle2.y > 0:    
+        paddle2.y = paddle2.y-20
 def moveDown2(event):
-    paddle2.y = paddle2.y+10
+        paddle2.y = paddle2.y+20
 
 def step():
-    if ball.x+50 == paddle1.x and ball.y == paddle1: 
+    if ball.x-25 <= 50 and ball.y >= paddle1.y and ball.y <= (paddle1.y+200): 
         moveX()
-    if ball.x+50 <= paddle2.x and ball.y == paddle2: 
-        maveX()
+    if ball.x+25 >= 960 and ball.y >= paddle2.y and ball.y <= (paddle2.y+200):
+        moveX()
     if ball.y+50 >= 523 or ball.y-50 <= 0:
         moveY()
     moveBall()
@@ -46,7 +48,7 @@ if __name__ == "__main__":
     
     ball = Sprite(circle,(300,300))
     paddle1 = Sprite(rectangle1,(0,200))
-    paddle2 = Sprite(rectangle2,(965,200))
+    paddle2 = Sprite(rectangle2,(960,200))
     
     
     data = {}
