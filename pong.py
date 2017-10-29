@@ -57,7 +57,12 @@ def updateScore2():
     data["scoreText2"] = Sprite(scoreBox2,(450,25))
 
 def reset():
-    print('hello')
+    ball.destroy()
+    paddle1.destroy()
+    paddle2.destroy()
+    circle = CircleAsset(radius,LineStyle(0,red),red)
+    rectangle1 = RectangleAsset(50,200,LineStyle(1, blue), blue)
+    rectangle2 = RectangleAsset(50,200,LineStyle(1, blue), blue)
     ball = Sprite(circle,(300,300))
     paddle1 = Sprite(rectangle1,(0,200))
     paddle2 = Sprite(rectangle2,(960,200))
