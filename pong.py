@@ -16,6 +16,7 @@ def moveBall():
     data["ball"].y = data["ball"].y +data['yd']
 
 def moveX():
+    print('hello')
     data['xd'] = -1*(data['xd'])
     
 def moveY():    
