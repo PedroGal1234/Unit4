@@ -5,7 +5,7 @@
 
 from ggame import *
 
-radius = 25
+radius = 12.5
 
 def moveBall():
     if data["ball"].x+radius >= 1015:
@@ -14,8 +14,8 @@ def moveBall():
     if data["ball"].x-radius <= 0:
         updateScore2()
         stop
-    data["ball"].x = data["ball"].x +data['xd']
-    data["ball"].y = data["ball"].y +data['yd']
+    data["ball"].x = data["ball"].x +1.5data['xd']
+    data["ball"].y = data["ball"].y +1.5data['yd']
 
 def moveX():
     data['xd'] = -1*(data['xd'])
