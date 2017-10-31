@@ -34,13 +34,17 @@ def moveDown2(event):
         data["paddle2"].y = data["paddle2"].y+20
 
 def step():
-    if data["ball"].x-radius <= 50 and ball.y >= data["paddle1"].y and data["ball"].y <= (data["paddle1"].y+200): 
+    if data["ball"].x-radius <= 50 and data['ball'].y >= data["paddle1"].y and data["ball"].y <= (data["paddle1"].y+200): 
         moveX()
     if data["ball"].x+radius >= 960 and data["ball"].y >= data["paddle2"].y and data["ball"].y <= (data["paddle2"].y+200):
         moveX()
     if data["ball"].y+radius >= 523 or data["ball"].y-radius <= 0:
         moveY()
     moveBall()
+
+def updateScore1():
+    
+
 
 def reset(event):
     data["ball"].destroy()
