@@ -14,8 +14,8 @@ def moveBall():
     if data["ball"].x-radius <= 0:
         updateScore2()
         stop
-    data["ball"].x = data["ball"].x +1.5data['xd']
-    data["ball"].y = data["ball"].y +1.5data['yd']
+    data["ball"].x = data["ball"].x +1.5*data['xd']
+    data["ball"].y = data["ball"].y +1.5*data['yd']
 
 def moveX():
     data['xd'] = -1*(data['xd'])
@@ -24,15 +24,13 @@ def moveY():
     data['yd'] = -1*(data['yd'])
 
 def moveUp1(event):
-    if data["paddle1"].y > 0:
-        data["paddle1"].y = data["paddle1"].y-20
+    data["paddle1"].y = data["paddle1"].y-40
 def moveDown1(event):
-        data["paddle1"].y = data["paddle1"].y+20
+        data["paddle1"].y = data["paddle1"].y+40
 def moveUp2(event):
-    if data["paddle2"].y > 0:    
-        data["paddle2"].y = data["paddle2"].y-20
+    data["paddle2"].y = data["paddle2"].y-40
 def moveDown2(event):
-        data["paddle2"].y = data["paddle2"].y+20
+        data["paddle2"].y = data["paddle2"].y+40
 
 def step():
     if data["ball"].x-radius <= 25 and data['ball'].y >= data["paddle1"].y and data["ball"].y <= (data["paddle1"].y+200): 
