@@ -33,9 +33,9 @@ def moveDown2(event):
         data["paddle2"].y = data["paddle2"].y+40
 
 def step():
-    if data["ball"].x-radius <= 25 and data['ball'].y >= data["paddle1"].y and data["ball"].y <= (data["paddle1"].y+200): 
+    if data["ball"].x-radius <= 25 and data['ball'].y >= data["paddle1"].y and data["ball"].y <= (data["paddle1"].y+100): 
         moveX()
-    if data["ball"].x+radius >= 985 and data["ball"].y >= data["paddle2"].y and data["ball"].y <= (data["paddle2"].y+200):
+    if data["ball"].x+radius >= 985 and data["ball"].y >= data["paddle2"].y and data["ball"].y <= (data["paddle2"].y+100):
         moveX()
     if data["ball"].y+radius >= 523 or data["ball"].y-radius <= 0:
         moveY()
@@ -59,15 +59,15 @@ def reset(event):
     scoreBox2 = TextAsset("Right: "+str(data["score2"]))
     
     circle = CircleAsset(radius,LineStyle(0,red),red)
-    rectangle1 = RectangleAsset(25,200,LineStyle(1, blue), blue)
-    rectangle2 = RectangleAsset(25,200,LineStyle(1, blue), blue)
+    rectangle1 = RectangleAsset(25,100,LineStyle(1, blue), blue)
+    rectangle2 = RectangleAsset(25,100,LineStyle(1, blue), blue)
     
     data["scoreText1"] = Sprite(scoreBox1, (450,0))
     data["scoreText2"] = Sprite(scoreBox2, (450,25))
     
     data["ball"] = Sprite(circle,(500,500))
-    data["paddle1"] = Sprite(rectangle1,(0,200))
-    data["paddle2"] = Sprite(rectangle2,(985,200))
+    data["paddle1"] = Sprite(rectangle1,(0,100))
+    data["paddle2"] = Sprite(rectangle2,(985,100))
     
     App().run(step)
 
@@ -77,14 +77,14 @@ if __name__ == "__main__":
     blue = Color(0x0000ff,1)
     green = Color(0x00ff00,1)
     circle = CircleAsset(radius,LineStyle(0,red),red)
-    rectangle1 = RectangleAsset(25,200,LineStyle(1, blue), blue)
-    rectangle2 = RectangleAsset(25,200,LineStyle(1, blue), blue)
+    rectangle1 = RectangleAsset(25,100,LineStyle(1, blue), blue)
+    rectangle2 = RectangleAsset(25,100,LineStyle(1, blue), blue)
     
     data = {}
 
     data["ball"] = Sprite(circle,(500,500))
-    data["paddle1"] = Sprite(rectangle1,(0,200))
-    data["paddle2"] = Sprite(rectangle2,(985,200))
+    data["paddle1"] = Sprite(rectangle1,(0,100))
+    data["paddle2"] = Sprite(rectangle2,(985,100))
     
     scoreBox1 = TextAsset("Left: 0")
     scoreBox2 = TextAsset("Right: 0")
